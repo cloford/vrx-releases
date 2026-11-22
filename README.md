@@ -8,12 +8,12 @@ VRChatのフレンド状態を表示し、選んだフレンドのオンライ�
 
 | 対象 | ZIP | 起動方法 |
 | --- | --- | --- |
-| Windows x64 | `VRX-1.0.10-windows-x64.zip` | ZIP全体を展開し、`VRX/VRX.exe` を開きます。`_internal` は `VRX.exe` と同じフォルダに置きます。 |
-| Mac（Appleシリコン） | `VRX-1.0.10-macos-arm64.zip` | ZIPを展開し、Finderで `VRX.app` を開きます。Pythonのインストールは不要です。 |
+| Windows x64 | `VRX-1.0.12-windows-x64.zip` | ZIP全体を展開し、`VRX/VRX.exe` を開きます。`_internal` は `VRX.exe` と同じフォルダに置きます。 |
+| Mac（Appleシリコン） | `VRX-1.0.12-macos-arm64.zip` | ZIPを展開し、Finderで `VRX.app` を開きます。Pythonのインストールは不要です。 |
 
 Mac版はアドホック署名です。Developer ID署名とAppleの公証は未実施です。信頼できる配布元から取得したこととSHA-256を確認したうえで、初回起動でブロックされた場合は、アプリを開こうとした直後に **システム設定 → プライバシーとセキュリティ → このまま開く** を選べます。管理されたMacでは利用できない場合があります。 [Appleの案内](https://support.apple.com/ja-jp/102445)
 
-Windows版の `VRX.exe` はコード署名なしで、GitHub ActionsのWindows環境で起動を確認しました。Mac版はAppleシリコンのMacで起動を確認しました。
+Windows版の `VRX.exe` はコード署名なしです。GitHub ActionsのWindows環境で展開後の起動と更新後の再起動を確認しました。Windows実機での操作は未確認です。Mac版はAppleシリコンのMacで起動を確認しました。
 
 ## 使い方
 
@@ -30,10 +30,14 @@ Windows版の `VRX.exe` はコード署名なしで、GitHub ActionsのWindows�
 
 既定のログフォルダはWindowsでは `%USERPROFILE%/AppData/LocalLow/VRChat/VRChat`、Macでは `~/Library/Application Support/VRX/vrchat-logs` です。別の場所にあるログは **ログフォルダを選択** で指定できます。
 
+**設定 → 原本ログの保存設定** で、端末内への原本コピーを有効にできます。初期状態はオフです。保存期間は30日、合計上限は2,000 MBから変更できます。保存済みコピーは **プレイ履歴 → 保存ログを再解析** から読み直せます。解析ルールの変更時も再解析が走り、その間は既存の履歴を閲覧できます。
+
+**保存ログだけ削除** は原本コピーを消去し、自動保存をオフにします。**保存した履歴を全削除** は抽出済み履歴を消去します。VRChatの元ログはどちらの操作でも保持されます。
+
 ## 更新と配布ファイル
 
-旧版を終了し、公開リリースの新しいZIPを展開してアプリ一式を入れ替えてください。旧版のアプリ内更新確認は開発用リポジトリを参照するため、公開版は手動で更新してください。 [最新版の配布ページ](https://github.com/cloford/vrx-releases/releases/latest)
+1.0.10以前から更新する場合は、旧版を終了し、公開リリースの新しいZIPを展開して一度だけ手動でアプリ一式を入れ替えてください。1.0.11以降の配布版では、**設定 → アップデートを確認** から公開リリースを確認して更新できます。 [最新版の配布ページ](https://github.com/cloford/vrx-releases/releases/latest)
 
 この配布用リポジトリのGit履歴には公開文書が含まれます。使うファイルは **Assets** にあるOS別ZIPです。GitHubが自動生成する **Source code** は配布用リポジトリの文書アーカイブです。
 
-実行ファイルにはコンパイル済みのPythonバイトコードが含まれます。解析・抽出によって実装を再構成できる場合があります。第三者ソフトウェアのライセンス文書はリリースの `VRX-1.0.10-third-party-notices.zip` およびMac用ZIP内で確認できます。
+実行ファイルにはコンパイル済みのPythonバイトコードが含まれます。解析・抽出によって実装を再構成できる場合があります。第三者ソフトウェアのライセンス文書は `VRX-1.0.12-third-party-notices.zip` と各OSの配布ZIPに同梱しています。
